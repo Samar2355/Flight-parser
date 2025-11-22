@@ -4,6 +4,7 @@
 #importing libraries
 import csv
 import json
+from datetime import datetime
 #opening csv file and reading it line by line
 with open('db.csv',encoding='utf-8-sig') as opener:
     reader = csv.reader(opener,delimiter=',')
@@ -20,6 +21,8 @@ with open('db.csv',encoding='utf-8-sig') as opener:
         departure = flight['departure_datetime']
         arrival = flight['arrival_datetime']
         price = flight['price']
+        depart = datetime.strptime(departure, "%Y-%m-%d %H:%M")
+        arrive = datetime.strptime(arrival, "%Y-%m-%d %H:%M")
         # for checking the validitiy of flight details
         if not (2 <=len(flight_id) <= 8):
             print("Invalid Flight ID")
@@ -27,8 +30,9 @@ with open('db.csv',encoding='utf-8-sig') as opener:
             print("Invalid Origin")  
         if not len(destination) == 3 or not destination.isupper():
             print("Invalid Destination")
-        if not price > 0:
+        if not float(price) > 0:
             print("Invalid Price")
-        if not 
+        if arrival <= departure:
+            print("Invalid Arrival/Departure")
             
         print(flight)
