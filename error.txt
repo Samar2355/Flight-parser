@@ -1,0 +1,7 @@
+BA_BAD: Invalid Arrival
+SK404: Invalid Arrival/Departure
+QR1: Invalid Departure
+KL1999: Invalid Destination
+AY503: Invalid Price
+LH999999999: Invalid Flight ID
+SN2902: Invalid Departure, Invalid Arrival
